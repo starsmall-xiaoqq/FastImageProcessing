@@ -4,6 +4,12 @@ import tensorflow as tf
 import tensorflow.contrib.slim as slim
 import numpy as np
 
+import platform
+import ptvsd
+if(platform.system() == 'Linux'):
+    ptvsd.enable_attach('lxx', address=('0.0.0.0', 7102))
+    ptvsd.wait_for_attach()
+
 def lrelu(x):
     return tf.maximum(x*0.2,x)
 
